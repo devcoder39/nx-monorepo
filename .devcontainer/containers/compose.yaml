@@ -1,0 +1,17 @@
+services:
+  AngularNxMise:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu26.04
+    hostname: svc1
+    #env_file:
+    #  - /tmp/.env
+    volumes:
+      - ../..:/workspaces
+    command: sleep infinity
+    networks:
+      - frontend
+    environment:
+      - TZ=America/Bogota
+
+networks:
+  frontend:
+    driver: bridge

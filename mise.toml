@@ -1,0 +1,22 @@
+# 🛠️ Base runtimes managed by mise (zero npm CLI usage)
+[tools]
+node = "22"
+pnpm = "12"
+
+[env]
+PNPM_HOME = "{{ env.HOME }}/.local/share/pnpm"
+_.path = ["{{ env.PNPM_HOME }}/bin"]
+NG_CLI_ANALYTICS = "false"
+NX_DAEMON = "true"
+
+[tasks.setup]
+description = "Install workspace dependencies safely with pnpm"
+run = "pnpm install --frozen-lockfile"
+
+[tasks.dev]
+description = "Serve the Angular app via Nx"
+run = "pnpm nx serve"
+
+[tasks.graph]
+description = "Open Nx dependency graph"
+run = "pnpm nx graph"
